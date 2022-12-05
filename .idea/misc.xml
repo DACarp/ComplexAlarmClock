@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dane/AndroidStudioProjects/ComplexAlarmClock/app/src/main/res/layout/activity_disarm.xml" value="0.5744791666666667" />
         <entry key="..\:/Users/dane/AndroidStudioProjects/ComplexAlarmClock/app/src/main/res/layout/activity_main.xml" value="0.4624094202898551" />
+        <entry key="..\:/Users/dane/AndroidStudioProjects/ComplexAlarmClock/app/src/main/res/layout/fragment_options.xml" value="0.5290322580645161" />
       </map>
     </option>
   </component>

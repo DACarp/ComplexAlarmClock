@@ -2,4 +2,7 @@
     <string name="app_name">Complex Alarm Clock</string>
     <string name="set_alarm">Set Alarm</string>
     <string name="options">Options</string>
+
+    <string name="option_algebra">Algebra</string>
+    <string name="option_num_of_tasks">Number of Tasks</string>
 </resources>

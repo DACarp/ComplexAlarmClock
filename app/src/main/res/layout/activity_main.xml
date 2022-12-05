@@ -6,29 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextClock
-        android:id="@+id/simpleTextClock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="95dp"
-        android:textSize="55sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="276dp"
-        android:layout_height="101dp"
-        android:layout_marginBottom="313dp"
+        android:layout_width="314dp"
+        android:layout_height="350dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simpleTextClock">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextClock
+            android:id="@+id/mainMenuClock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="55sp"
+            android:paddingBottom="40dp" />
+
+        <TimePicker
+            android:id="@+id/mainMenuTimePicker"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:timePickerMode="spinner"
+            android:paddingBottom="40dp" />
 
         <Button
             android:id="@+id/armButton"
