@@ -11,26 +11,35 @@ public class ArithmeticMaker {
     public int numOperators; //Number of operators in the problem
     public int[] nums = new int[4];  //Up to 4 numbers are used in these problems.
     public int[] operators = new int[3]; //Up to 3 operations are performed on the numbers. The first
-                        // may be any operator, +-x/    1=+, 2=-, 3=x, 4=/
+                        // may be any operator, +-*/    1=+, 2=-, 3=*, 4=/
                         // The other two may only be +-.
 
 
     public int solution; //Solution to check against for completion of the task.
 
     public ArithmeticMaker(){ //Creates a problem when first constructed.
-        generateArithmetic();
+        generateArithmetic(0);
     }
-    public void generateArithmetic(){
+    public ArithmeticMaker(int i){
+        generateArithmetic(i);
+    }
+
+    public void generateArithmetic(int givenOperators){ //Give a 0 to pick randomly, 1-3 to choose
+                                    //number of operators, also picks randomly for invalid integers.
 
         Random rand = new Random();
         int[] niceDividends = new int[]{2, 4, 6, 8, 9, 10, 12, 14, 15, 16};
         //First 10 numbers that can be divided easily.
 
-        numOperators = rand.nextInt(3) + 1; //Randomly choose 1, 2, or 3 operators
 
-        operators[0] = rand.nextInt(4) + 1; //Randomly choose +,-,x,/
-        operators[1] = rand.nextInt(2) + 1; //Randomly choose +,-
-        operators[2] = rand.nextInt(2) + 1; //Randomly choose +,-
+        if(givenOperators > 0 && givenOperators <=3)//Pick or choose randomly
+            numOperators = givenOperators;
+        else
+            numOperators = rand.nextInt(3) + 1; //Randomly choose 1, 2, or 3 operators
+
+        operators[0] = rand.nextInt(4) + 1; //Randomly choose +, -, *, /
+        operators[1] = rand.nextInt(2) + 1; //Randomly choose +, -
+        operators[2] = rand.nextInt(2) + 1; //Randomly choose +, -
 
         nums[0] = rand.nextInt(10) + 1; //Randomly pick a number between 1 and 10
         nums[1] = rand.nextInt(10) + 1;
@@ -55,6 +64,7 @@ public class ArithmeticMaker {
                         temp = temp + nums[i + 1];
                     break;
                 }
+
                 case 2:{ //Subtraction
                     if(i==0) {//First loop
                         temp = nums[0] - nums[1];
@@ -63,10 +73,12 @@ public class ArithmeticMaker {
                         temp = temp - nums[i + 1];
                     break;
                 }
+
                 case 3:{ //Multiplication. First operator only.
                     temp = nums[0]*nums[1];
                     break;
                 }
+
                 case 4:{ //Division. First operator only. For this, make the numbers play 'nice'.
                     nums[0] = niceDividends[nums[0]-1]; //Translate the first number into one
                                                         //of the chosen dividends.
