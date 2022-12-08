@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="MemoryTile">
+        <item name="android:layout_height">75dp</item>
+        <item name="android:layout_width">75dp</item>
+    </style>
+
 </resources>
