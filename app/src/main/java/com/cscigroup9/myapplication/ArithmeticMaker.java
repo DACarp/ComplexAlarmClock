@@ -10,16 +10,16 @@ public class ArithmeticMaker {
 
     public int numOperators; //Number of operators in the problem
     public int[] nums = new int[4];  //Up to 4 numbers are used in these problems.
-    public int[] operators = new int[3]; //Up to 3 operations are performed on the numbers. The first
-                        // may be any operator, +-*/    1=+, 2=-, 3=*, 4=/
-                        // The other two may only be +-.
+    public String[] operators = new String[3]; //Up to 3 operations are performed on the numbers. The first
+                        // may be any operator, +-*/ .   The other two may only be +- .
 
 
     public int solution; //Solution to check against for completion of the task.
 
     public ArithmeticMaker(){ //Creates a problem when first constructed.
         generateArithmetic(0);
-    }
+    }//Default builder gives random
+                                                                    //number of operators
     public ArithmeticMaker(int i){
         generateArithmetic(i);
     }
@@ -37,9 +37,9 @@ public class ArithmeticMaker {
         else
             numOperators = rand.nextInt(3) + 1; //Randomly choose 1, 2, or 3 operators
 
-        operators[0] = rand.nextInt(4) + 1; //Randomly choose +, -, *, /
-        operators[1] = rand.nextInt(2) + 1; //Randomly choose +, -
-        operators[2] = rand.nextInt(2) + 1; //Randomly choose +, -
+        operators[0] = assignOpString(rand.nextInt(4) + 1); //Randomly choose +, -, *, /
+        operators[1] = assignOpString(rand.nextInt(2) + 1); //Randomly choose +, -
+        operators[2] = assignOpString(rand.nextInt(2) + 1); //Randomly choose +, -
 
         nums[0] = rand.nextInt(10) + 1; //Randomly pick a number between 1 and 10
         nums[1] = rand.nextInt(10) + 1;
@@ -56,7 +56,7 @@ public class ArithmeticMaker {
             //require the operation of temp and i+1.
 
             switch(operators[i]){
-                case 1:{ //Addition
+                case "+":{ //Addition
                     if(i==0) {//First loop
                         temp = nums[0] + nums[1];
                     }
@@ -65,7 +65,7 @@ public class ArithmeticMaker {
                     break;
                 }
 
-                case 2:{ //Subtraction
+                case "-":{ //Subtraction
                     if(i==0) {//First loop
                         temp = nums[0] - nums[1];
                     }
@@ -74,12 +74,12 @@ public class ArithmeticMaker {
                     break;
                 }
 
-                case 3:{ //Multiplication. First operator only.
+                case "*":{ //Multiplication. First operator only.
                     temp = nums[0]*nums[1];
                     break;
                 }
 
-                case 4:{ //Division. First operator only. For this, make the numbers play 'nice'.
+                case "/":{ //Division. First operator only. For this, make the numbers play 'nice'.
                     nums[0] = niceDividends[nums[0]-1]; //Translate the first number into one
                                                         //of the chosen dividends.
 
@@ -97,6 +97,28 @@ public class ArithmeticMaker {
 
     }
 
+    private String assignOpString(int id){ //Converts random number to appropriate operator character.
+        String op = "";
+        switch(id){
+            case 1:{
+               op = "+";
+               break;
+            }
+            case 2:{
+                op = "-";
+                break;
+            }
+            case 3:{
+                op = "*";
+                break;
+            }
+            case 4:{
+                op = "/";
+                break;
+            }
+        }
+        return op;
+    }
 
     private int getNiceDivisor(int divid){  //Private method for choosing a good divisor for the
                                             //given dividend
