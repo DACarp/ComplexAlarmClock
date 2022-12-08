@@ -6,43 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".DisarmActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/disarm_fragment_container"></androidx.fragment.app.FragmentContainerView>
 
-    <LinearLayout
-        android:id="@+id/MathLinearLayout"
-        android:layout_width="319dp"
-        android:layout_height="223dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/MathDisplayText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="40sp"
-            android:gravity="center" />
-
-        <EditText
-            android:id="@+id/MathAnswerText"
-            android:layout_width="55dp"
-            android:layout_height="17dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="@string/answerBoxHint"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/MathSubmitButton"
-            android:layout_width="104dp"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:text="@string/submit" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

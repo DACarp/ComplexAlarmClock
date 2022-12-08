@@ -10,5 +10,8 @@
     <string name="channel_description">Notification channel for Complex Alarm</string>
     <string name="submit">Submit</string>
     <string name="answerBoxHint">\?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="memoryInstructions">Memorize all the spaces and repeat them!</string>
 
 </resources>
