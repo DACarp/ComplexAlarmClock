@@ -50,11 +50,13 @@ public class DisarmActivity extends AppCompatActivity {
             taskListIds.add(2); //Add algebra if allowed
         //could do with a multichoice dropdown for these
         taskListIds.add(3);
+        taskListIds.add(4);
 
         //Log.d("EEEE DisarmActivity", "taskListIds created successfully");
 
         int chosen = rand.nextInt(taskListIds.size()); //Returns a random number between 0
         Class puzzle = ArithmeticGame.class;
+        Class guess = guessIt.class;
 
         //Log.d("EEEE DisarmActivity", "chosenIndex = " + chosen);
 
@@ -68,6 +70,8 @@ public class DisarmActivity extends AppCompatActivity {
             case 3: //Id 3 = Memory
                 puzzle = MemoryGame.class;
                 break;
+            case 4 : //id 4 = guessIt
+            guess = guessIt.class
         }
 
         //Initialize the puzzle in our activity's container
