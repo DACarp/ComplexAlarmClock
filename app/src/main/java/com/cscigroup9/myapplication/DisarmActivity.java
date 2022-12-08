@@ -56,7 +56,7 @@ public class DisarmActivity extends AppCompatActivity {
 
         int chosen = rand.nextInt(taskListIds.size()); //Returns a random number between 0
         Class puzzle = ArithmeticGame.class;
-        Class guess = guessIt.class;
+
 
         //Log.d("EEEE DisarmActivity", "chosenIndex = " + chosen);
 
@@ -71,7 +71,7 @@ public class DisarmActivity extends AppCompatActivity {
                 puzzle = MemoryGame.class;
                 break;
             case 4 : //id 4 = guessIt
-            guess = guessIt.class
+            puzzle = guessIt.class;
         }
 
         //Initialize the puzzle in our activity's container

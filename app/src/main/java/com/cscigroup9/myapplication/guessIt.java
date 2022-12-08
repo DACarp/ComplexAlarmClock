@@ -1,64 +1,63 @@
 package com.cscigroup9.myapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link guessIt#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class guessIt extends Fragment {
+public class guessIt extends AppCompatActivity {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public guessIt() {
-        // Required empty public constructor Put code here?
+    int chosenNum;
+    static int getRand(int max, int min)
+    {
+        return (int)((Math.random()
+                * (max - min)) + min);
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment guessIt.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static guessIt newInstance(String param1, String param2) {
-        guessIt fragment = new guessIt();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public void commentz(String str)
+    {
+        Toast.makeText(
+                        guessIt.this,
+                        str,
+                        Toast.LENGTH_SHORT)
+                .show();
     }
+    public void clickFunction(View view)
+    {
+        int userGuess;
+        EditText variable
+                = (EditText)findViewById(
+                R.id.editId);
+        userGuess
+                = Integer.parseInt(
+                variable
+                        .getText()
+                        .toString());
+        if (userGuess < chosenNum) {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            commentz("Nah go higher, ur wrong");
+        }
+        else if (userGuess > chosenNum) {
+            commentz("Nah go lower, ur wrong");
+        }
+        else {
+            commentz(
+                    "AYEEE,"
+                            +" You Got it!");
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_guess_it, container, false);
+    protected void onCreate(
+            Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        int minNum = 1;
+        int maxNum = 3;
+        chosenNum = getRand(minNum, maxNum);
     }
 }
