@@ -26,7 +26,7 @@ public class DisarmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.d("EEEE DisarmActivity", "onCreate start");
+        //Log.d("EEEE DisarmActivity", "onCreate start");
 
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
@@ -36,7 +36,7 @@ public class DisarmActivity extends AppCompatActivity {
         boolean isAlgebra = intent.getBooleanExtra("isAlgebra", true);
         int numTasks = intent.getIntExtra("numTasks", 5);
 
-        Log.d("EEEE DisarmActivity", "got intent");
+        //Log.d("EEEE DisarmActivity", "got intent");
 
         Random rand = new Random();
 
@@ -49,11 +49,14 @@ public class DisarmActivity extends AppCompatActivity {
         if(isAlgebra)
             taskListIds.add(2); //Add algebra if allowed
         //could do with a multichoice dropdown for these
+        taskListIds.add(3);
 
-        Log.d("EEEE DisarmActivity", "taskListIds created successfully");
+        //Log.d("EEEE DisarmActivity", "taskListIds created successfully");
 
-        int chosen = rand.nextInt(taskListIds.size()-1); //Returns a random index of the taskListIds array
+        int chosen = rand.nextInt(taskListIds.size()); //Returns a random number between 0
         Class puzzle = ArithmeticGame.class;
+
+        //Log.d("EEEE DisarmActivity", "chosenIndex = " + chosen);
 
         switch(taskListIds.get(chosen)) {
             case 1: //Id 1 = arithmetic

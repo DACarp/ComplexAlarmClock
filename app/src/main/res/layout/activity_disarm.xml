@@ -7,8 +7,9 @@
     tools:context=".DisarmActivity">
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/disarm_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/disarm_fragment_container"></androidx.fragment.app.FragmentContainerView>
+        ></androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
