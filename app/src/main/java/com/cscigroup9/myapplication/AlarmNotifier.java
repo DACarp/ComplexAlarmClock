@@ -32,7 +32,7 @@ public class AlarmNotifier extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int id){
         Intent notificationIntent = new Intent(this, DisarmActivity.class);
-        PendingIntent pending = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        PendingIntent pending = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
 
         Notification notif = new NotificationCompat.Builder(this, ALARM_CHANNEL)
                 .setContentTitle("ALARM OF PAIN")

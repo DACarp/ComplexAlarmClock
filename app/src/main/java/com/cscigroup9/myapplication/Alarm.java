@@ -38,7 +38,7 @@ public class Alarm {
         intent.putExtra("isAlgebra", setAlgebra);
         intent.putExtra("numTasks", numTasks);
 
-        PendingIntent alarmPending = PendingIntent.getBroadcast(context, id, intent, 0);
+        PendingIntent alarmPending = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_IMMUTABLE);
 
 
 
