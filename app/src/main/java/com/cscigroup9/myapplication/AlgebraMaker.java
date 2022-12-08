@@ -40,28 +40,6 @@ public class AlgebraMaker {
 
         result = Arithmetic.solution;
 
-        for(int i = 0; i < 3; i++){
-
-            switch(Arithmetic.operators[i]){ //Converts the operators to strings to hopefully ease displaying.
-                case 1:{
-                    ops[i] = "+";
-                    break;
-                }
-                case 2:{
-                    ops[i] = "-";
-                    break;
-                }
-                case 3:{
-                    ops[i] = "*";
-                    break;
-                }
-                case 4:{
-                    ops[i] = "/";
-                    break;
-                }
-            }
-        }
-
     }
 
 
