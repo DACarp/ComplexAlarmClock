@@ -25,7 +25,7 @@ public class guessIt extends Fragment {
     private String mParam2;
 
     public guessIt() {
-        // Required empty public constructor
+        // Required empty public constructor Put code here?
     }
 
     /**
