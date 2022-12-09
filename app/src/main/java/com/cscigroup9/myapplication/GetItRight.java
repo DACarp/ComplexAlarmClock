@@ -1,7 +1,6 @@
 package com.cscigroup9.myapplication;
 
-import static android.widget.Toast.*;
-
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.io.ObjectInputStream;
 import java.util.Random;
 
 /**
@@ -22,6 +22,7 @@ public class GetItRight extends Fragment {
 
     private int count = 0;
     private int r1, r2;
+    private ObjectInputStream.GetField buttonStates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +50,9 @@ public class GetItRight extends Fragment {
                 break;
             }
         }
-        Button b = (Button) findViewById(R.id.buttonl);
+        Button b = (Button) b.findViewById();
         b.setText(Integer.toString(r1));
-        Button b2= (Button) findViewById(R.id.buttonr);
+        Button b2= (Button) b2.findViewById();
         b2.setText(Integer.toString(r2));
 
     }
@@ -63,7 +64,7 @@ public class GetItRight extends Fragment {
         else
             count--;
         //displays the variables
-        TextView txt = (TextView) findViewById(R.id.textViewResult);
+        TextView txt = (TextView) view.findViewById();
         txt.setText("Points: "+count); //displays current points in textViewResult Button when player selects a button
         giveNewRandom(); //allows onClickLeft to generate random numbers between 1-10
 
@@ -75,9 +76,16 @@ public class GetItRight extends Fragment {
             count++;
         else
             count--;
-        TextView txt = (TextView) findViewById(R.id.textViewResult);
+        TextView txt = (TextView) view.findViewById();
         txt.setText("Points: "+count);//displays current points in textViewResult button when player selects a button
         giveNewRandom(); //allows onClickLeft to generate random numbers between 1-10
+    }
+
+    public void completePuzzle() {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("disarmed",true);
+        getParentFragmentManager().setFragmentResult("disarmed",bundle);
+
     }
 
 }
