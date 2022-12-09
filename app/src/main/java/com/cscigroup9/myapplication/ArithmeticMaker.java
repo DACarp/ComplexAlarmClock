@@ -128,42 +128,52 @@ public class ArithmeticMaker {
         switch(divid){
             case 2:{
                 divisor = divRand.nextInt(2) + 1; //Choose 1 or 2
+                break;
             }
             case 4:{
                 int[] divisors = new int[]{1, 2, 4}; //These are the allowed divisors
                 divisor = divisors[divRand.nextInt(3)]; //Choose on at random
+                break;
             }
             case 6:{
                 int[] divisors = new int[]{1, 2, 3, 6};
                 divisor = divisors[divRand.nextInt(4)];
+                break;
             }
             case 8:{
                 int[] divisors = new int[]{1, 2, 4, 8};
                 divisor = divisors[divRand.nextInt(4)];
+                break;
             }
             case 9:{
                 int[] divisors = new int[]{1, 3, 9};
                 divisor = divisors[divRand.nextInt(3)];
+                break;
             }
             case 10:{
                 int[] divisors = new int[]{1, 2, 5, 10};
                 divisor = divisors[divRand.nextInt(4)];
+                break;
             }
             case 12:{
                 int[] divisors = new int[]{1, 2, 3, 6, 12};
                 divisor = divisors[divRand.nextInt(5)];
+                break;
             }
             case 14:{
                 int[] divisors = new int[]{1, 2, 7, 14};
                 divisor = divisors[divRand.nextInt(4)];
+                break;
             }
             case 15:{
                 int[] divisors = new int[]{1, 3, 5, 15};
                 divisor = divisors[divRand.nextInt(4)];
+                break;
             }
             case 16:{
                 int[] divisors = new int[]{1, 2, 4, 8, 16};
                 divisor = divisors[divRand.nextInt(5)];
+                break;
             }
         }
 

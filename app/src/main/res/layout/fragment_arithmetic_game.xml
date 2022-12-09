@@ -34,8 +34,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:gravity="center"
-            android:hint="@string/answerBoxHint"
-            android:inputType="number" />
+            android:hint="@string/answerBoxHint" />
 
         <Button
             android:id="@+id/MathSubmitButton"

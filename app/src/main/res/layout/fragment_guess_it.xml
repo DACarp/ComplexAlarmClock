@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".guessIt">
 
     <RelativeLayout
         android:layout_width="409dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/guessItText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -25,11 +25,11 @@
             android:layout_marginLeft="97dp"
             android:layout_marginTop="204dp"
             android:background="#8BF44336"
-            android:text="GUESS WHAT?"
+            android:text="@string/guess_what"
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/guessItText2"
             android:layout_width="391dp"
             android:layout_height="68dp"
             android:layout_alignParentStart="true"
@@ -38,13 +38,13 @@
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="287dp"
-            android:text="What number am I thinking  of between 1 and 3?"
+            android:text="@string/what_number"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editId"
+            android:id="@+id/guessItEditText"
             android:layout_width="348dp"
             android:layout_height="67dp"
             android:layout_alignParentTop="true"
@@ -59,7 +59,7 @@
             android:inputType="numberDecimal" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/guessItButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

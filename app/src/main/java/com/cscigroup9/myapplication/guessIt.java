@@ -1,13 +1,17 @@
 package com.cscigroup9.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class guessIt extends AppCompatActivity {
+public class guessIt extends Fragment {
+
+    public guessIt(){}
 
     int chosenNum;
     static int getRand(int max, int min)
@@ -19,17 +23,18 @@ public class guessIt extends AppCompatActivity {
     public void commentz(String str)
     {
         Toast.makeText(
-                        guessIt.this,
+                        getActivity(),
                         str,
                         Toast.LENGTH_SHORT)
                 .show();
     }
+
     public void clickFunction(View view)
     {
         int userGuess;
         EditText variable
-                = (EditText)findViewById(
-                R.id.editId);
+                = (EditText)view.findViewById(
+                R.id.guessItEditText);
         userGuess
                 = Integer.parseInt(
                 variable
@@ -46,18 +51,30 @@ public class guessIt extends AppCompatActivity {
             commentz(
                     "AYEEE,"
                             +" You Got it!");
+            completePuzzle();
         }
     }
 
     @Override
-    protected void onCreate(
-            Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_memory_game, container, false);
 
         int minNum = 1;
-        int maxNum = 3;
+        int maxNum = 10;
         chosenNum = getRand(minNum, maxNum);
+
+        return view;
+    }
+
+    public void completePuzzle() {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("disarmed",true);
+        getParentFragmentManager().setFragmentResult("disarmed",bundle);
+
     }
 }

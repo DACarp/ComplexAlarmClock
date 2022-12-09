@@ -13,5 +13,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="memoryInstructions">Memorize all the spaces and repeat them!</string>
+    <string name="guess_what">GUESS WHAT?</string>
+    <string name="what_number">What number am I thinking of between 1 and 10?</string>
 
 </resources>
