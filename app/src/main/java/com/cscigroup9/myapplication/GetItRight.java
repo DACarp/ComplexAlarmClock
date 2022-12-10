@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,20 +26,27 @@ public class GetItRight extends Fragment {
     private int r1, r2;
     private ObjectInputStream.GetField buttonStates;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        giveNewRandom(); //will allow giveNewRandom to generate numbers
+    private Button b;
+    private Button b2;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.fragment_get_it_right, container, false);
+
+       b = (Button) view.findViewById(R.id.buttonl);
+       b2= (Button) view.findViewById(R.id.buttonr);
+
+        giveNewRandom(); //will allow giveNewRandom to generate numbers
+        return view;
     }
 
     private void giveNewRandom () {
         //if statement makes condition that when player hits 5 points, game is completed
-        if(count==5){
+        if(count>=5){
             count=0;
-            //toast message will congratulate winner once 5 points are reached
-            Toast.makeText(this, "You won!", Toast.LENGTH_SHORT).show();
+            completePuzzle();
         }
         else
         {
@@ -46,14 +55,14 @@ public class GetItRight extends Fragment {
             //while loop ensures different numbers are generated in each button each play
             while (true) {
                 r2 = rand.nextInt(10);
-                if (r1 != r2) ;
-                break;
+                if (r1 != r2)
+                    break;
             }
         }
-        Button b = (Button) b.findViewById();
-        b.setText(Integer.toString(r1));
-        Button b2= (Button) b2.findViewById();
-        b2.setText(Integer.toString(r2));
+
+        b.setText(r1);
+
+        b2.setText(r2);
 
     }
 
@@ -64,8 +73,8 @@ public class GetItRight extends Fragment {
         else
             count--;
         //displays the variables
-        TextView txt = (TextView) view.findViewById();
-        txt.setText("Points: "+count); //displays current points in textViewResult Button when player selects a button
+        TextView txt = (TextView) view.findViewById(R.id.textViewResult);
+        txt.setText(R.string.points + count); //displays current points in textViewResult Button when player selects a button
         giveNewRandom(); //allows onClickLeft to generate random numbers between 1-10
 
     }
@@ -76,8 +85,8 @@ public class GetItRight extends Fragment {
             count++;
         else
             count--;
-        TextView txt = (TextView) view.findViewById();
-        txt.setText("Points: "+count);//displays current points in textViewResult button when player selects a button
+        TextView txt = (TextView) view.findViewById(R.id.textViewResult);
+        txt.setText(R.string.points + count);//displays current points in textViewResult button when player selects a button
         giveNewRandom(); //allows onClickLeft to generate random numbers between 1-10
     }
 
