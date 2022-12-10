@@ -76,7 +76,7 @@ public class DisarmActivity extends AppCompatActivity {
                 if(ret) {//If a task is disarmed
                     Log.d("EEEE DisarmActivity", "Disarmed! tasksLeft = " + tasksLeft);
 
-                    if(tasksLeft <= 1) //If there are no more tasks, disarm.
+                    if(tasksLeft < 1) //If there are no more tasks, disarm.
                         disarmAlarm();
                     else {
                         tasksLeft--; //Else, decrement tasksLeft and get new task.
