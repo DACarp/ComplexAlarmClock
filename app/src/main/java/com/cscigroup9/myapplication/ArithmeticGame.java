@@ -71,12 +71,12 @@ public class ArithmeticGame extends Fragment {
         mathDisplayText.setText(problemString.toString());
         mathLayout.setVisibility(View.VISIBLE); //Display problem
 
-        Log.d("EEEE DisarmActivity", "solution = " + String.valueOf(arithMaker.solution));
+        //Log.d("EEEE ArithmeticGame", "solution = " + String.valueOf(arithMaker.solution));
 
 
         mathSubmitButton.setOnClickListener(v -> {
 
-            Log.d("EEEE DisarmActivity", "answer = " + mathAnswer.getText());
+            //Log.d("EEEE ArithmeticGame", "answer = " + mathAnswer.getText());
 
             boolean correct = false;
 

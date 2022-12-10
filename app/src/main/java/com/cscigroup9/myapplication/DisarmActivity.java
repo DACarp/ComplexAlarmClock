@@ -18,7 +18,8 @@ public class DisarmActivity extends AppCompatActivity {
 
     private ArrayList<Integer> taskListIds;
     private int tasksLeft = 1;
-    private final String TASK_FRAGMENT = "taskFrag";
+
+    private final boolean DEMO_MODE = false; //Runs all 4 tasks in order.
 
 
     @Override
@@ -33,8 +34,9 @@ public class DisarmActivity extends AppCompatActivity {
 
         boolean isAlgebra = intent.getBooleanExtra("isAlgebra", true);
         int numTasks = intent.getIntExtra("numTasks", 3);
+        //Intents not being passed through. Settings have been disabled.
 
-        Log.d("EEEE DisarmActivity", "numTasks = " + numTasks);
+
 
 
 
@@ -45,28 +47,29 @@ public class DisarmActivity extends AppCompatActivity {
         taskListIds = new ArrayList<>();
         taskListIds.add(1); //Arithmetic always allowed
         if(isAlgebra)
-            taskListIds.add(2); //Add algebra if allowed
+            taskListIds.add(2); //Add algebra if allowed (UNUSED)
         //could do with a multichoice dropdown for these
         taskListIds.add(3);
         taskListIds.add(4);
+        taskListIds.add(5);
 
 
+        Class puzzle;
 
-        Log.d("EEEE DisarmActivity", "taskListIds size = " + taskListIds.size());
+        if(DEMO_MODE){
+            numTasks = 4; //Demo mode to show all tasks
+        }
 
+        //Log.d("EEEE DisarmActivity", "numTasks = " + numTasks);
 
-        Class puzzle = ArithmeticGame.class; //Default instantiate
+        tasksLeft = numTasks; //Counter for tasks remaining
+
         puzzle = getRandomTask(taskListIds); //Get random puzzle class from the allowed lists
-
-
-
-
-
 
         //Initialize the puzzle in our activity's container
         instantiateTask(puzzle);
 
-        tasksLeft = numTasks;
+
 
         //Setup the listener for when the puzzle is finished
         getSupportFragmentManager().setFragmentResultListener("disarmed", this, new FragmentResultListener() {
@@ -74,7 +77,7 @@ public class DisarmActivity extends AppCompatActivity {
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 Boolean ret = result.getBoolean("disarmed");
                 if(ret) {//If a task is disarmed
-                    Log.d("EEEE DisarmActivity", "Disarmed! tasksLeft = " + tasksLeft);
+                    //Log.d("EEEE DisarmActivity", "Disarmed! tasksLeft = " + tasksLeft);
 
                     if(tasksLeft < 1) //If there are no more tasks, disarm.
                         disarmAlarm();
@@ -94,13 +97,16 @@ public class DisarmActivity extends AppCompatActivity {
 
         int chosen = rand.nextInt(list.size()); //Returns a random number between 0 and size-1
 
-        Log.d("EEEE DisarmActivity", "chosenIndex = " + list.get(chosen));
+        if(DEMO_MODE){
+            chosen = tasksLeft; //Demo mode to show all tasks
+        }
 
         switch(list.get(chosen)) {
 
             case 1: //Id 1 = arithmetic. Default.
                 break;
-            case 2: //Id 2 = algebra. Not implemented, stick with default.
+            case 2: //Id 2 = algebra. Not implemented, stick with default. Ergo, twice as likely
+                //to get a math problem. Acceptable
                 break;
             case 3: //Id 3 = Memory
                 puzzle = MemoryGame.class;
@@ -108,9 +114,12 @@ public class DisarmActivity extends AppCompatActivity {
             case 4: //id 4 = guessIt
                 puzzle = guessIt.class;
                 break;
+            case 5: //id 5 = getItRight
+                puzzle = GetItRight.class;
+                break;
         }
 
-        Log.d("EEEE DisarmActivity", "puzzle class = " + puzzle.getSimpleName());
+        //Log.d("EEEE DisarmActivity", "puzzle class = " + puzzle.getSimpleName());
 
         return puzzle;
     }

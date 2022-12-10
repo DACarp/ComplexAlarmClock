@@ -1,6 +1,5 @@
 package com.cscigroup9.myapplication;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import java.io.ObjectInputStream;
@@ -35,8 +33,16 @@ public class GetItRight extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_get_it_right, container, false);
 
-       b = (Button) view.findViewById(R.id.buttonl);
-       b2= (Button) view.findViewById(R.id.buttonr);
+        b = view.findViewById(R.id.buttonl);
+        b2= view.findViewById(R.id.buttonr);
+
+        b.setOnClickListener(v -> {
+            onClickLeft(view);
+        });
+
+        b2.setOnClickListener(v -> {
+            onClickRight(view);
+        });
 
         giveNewRandom(); //will allow giveNewRandom to generate numbers
         return view;
@@ -60,9 +66,9 @@ public class GetItRight extends Fragment {
             }
         }
 
-        b.setText(r1);
+        b.setText(String.valueOf(r1));
 
-        b2.setText(r2);
+        b2.setText(String.valueOf(r2));
 
     }
 
@@ -74,7 +80,7 @@ public class GetItRight extends Fragment {
             count--;
         //displays the variables
         TextView txt = (TextView) view.findViewById(R.id.textViewResult);
-        txt.setText(R.string.points + count); //displays current points in textViewResult Button when player selects a button
+        txt.setText("Points: " + count); //displays current points in textViewResult Button when player selects a button
         giveNewRandom(); //allows onClickLeft to generate random numbers between 1-10
 
     }
@@ -86,7 +92,7 @@ public class GetItRight extends Fragment {
         else
             count--;
         TextView txt = (TextView) view.findViewById(R.id.textViewResult);
-        txt.setText(R.string.points + count);//displays current points in textViewResult button when player selects a button
+        txt.setText("Points: " + count);//displays current points in textViewResult button when player selects a button
         giveNewRandom(); //allows onClickLeft to generate random numbers between 1-10
     }
 
