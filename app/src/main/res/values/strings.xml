@@ -10,10 +10,14 @@
     <string name="channel_description">Notification channel for Complex Alarm</string>
     <string name="submit">Submit</string>
     <string name="answerBoxHint">\?</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="memoryInstructions">Memorize all the spaces and repeat them!</string>
+
     <string name="guess_what">GUESS WHAT?</string>
     <string name="what_number">What number am I thinking of between 1 and 10?</string>
 
+    <string name="getItRightRules">Rules: Select button with larger digit to get a point. Get it wrong, lose a point. Earn 5 points to win!</string>
+    <string name="getItRightTitle">Get It Right!</string>
+    <string name="points">Points: </string>
 </resources>
