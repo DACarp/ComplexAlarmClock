@@ -47,13 +47,17 @@
             android:text="@string/option_algebra"
             android:paddingTop="40dp"
 
+            android:visibility="gone"
+
             android:textSize="30sp"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/guessItText"

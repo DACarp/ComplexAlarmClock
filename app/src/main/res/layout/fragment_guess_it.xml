@@ -69,7 +69,6 @@
             android:layout_marginRight="134dp"
             android:layout_marginBottom="154dp"
             android:backgroundTint="#4A3F2E"
-            android:onClick="clickFunction"
             android:text="GUESS"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"

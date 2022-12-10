@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -62,11 +63,18 @@ public class guessIt extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_memory_game, container, false);
+        View view = inflater.inflate(R.layout.fragment_guess_it, container, false);
 
         int minNum = 1;
         int maxNum = 10;
         chosenNum = getRand(minNum, maxNum);
+
+        Button guessItButton = view.findViewById(R.id.guessItButton);
+        guessItButton.setOnClickListener(v -> {
+
+            clickFunction(view);
+
+        });
 
         return view;
     }
