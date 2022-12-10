@@ -75,12 +75,26 @@ public class ArithmeticGame extends Fragment {
 
 
         mathSubmitButton.setOnClickListener(v -> {
+
             Log.d("EEEE DisarmActivity", "answer = " + mathAnswer.getText());
-            if (arithMaker.solution - Integer.parseInt(String.valueOf(mathAnswer.getText())) == 0) {
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("disarmed",true);
-                getParentFragmentManager().setFragmentResult("disarmed",bundle);
+
+            boolean correct = false;
+
+            try { //Input is text field, therefore we must catch the exception.
+                if (arithMaker.solution - Integer.parseInt(String.valueOf(mathAnswer.getText())) == 0) {
+                    correct = true;
+                }
             }
+            catch(Exception ignored){
+
+            }
+
+            if(correct){
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("disarmed", true);
+                getParentFragmentManager().setFragmentResult("disarmed", bundle);
+            }
+
         });
 
         return view;
